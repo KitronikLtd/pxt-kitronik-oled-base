@@ -48,7 +48,7 @@ namespace kitronik_OLED {
     let writeTwoByteBuf = pins.createBuffer(3);
     let writeThreeByteBuf = pins.createBuffer(4);
 
-    let initialised = 0         // Flag to indicate automatic initalisation of the display
+    export let initialised = 0         // Flag to indicate automatic initalisation of the display
 
     // Function to write one byte of data to the display
     function writeOneByte(regValue: number) {
