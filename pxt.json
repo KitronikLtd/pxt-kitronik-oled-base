@@ -1,0 +1,15 @@
+{
+    "name": "pxt-kitronik-oled-base",
+    "version": "0.0.1",
+    "description": "Core functionality for the SSD1306 OLED Display Driver (brought in as a dependency in other extensions)",
+    "license": "MIT",
+    "dependencies": {
+        "core": "*"
+    },
+    "files": [
+        "README.md",
+        "oled_base.ts"
+    ],
+    "testFiles": [],
+    "public": true
+}
