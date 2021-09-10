@@ -17,7 +17,7 @@ namespace kitronik_OLED {
     let displayAddress = DISPLAY_ADDR_1;
 
     // Text alignment, defaulted to "Left"
-    let displayShowAlign = ShowAlign.Left
+    //let displayShowAlign = ShowAlign.Left
 
     // Plot variables
     let plotArray: number[] = []
@@ -120,7 +120,13 @@ namespace kitronik_OLED {
             writeTwoByte(0xD6, 0)           // Zoom is set to off
             writeOneByte(0xAF)              // SSD1306_DISPLAYON
             initialised = 1
-            clear()
+            // Clear the display
+            pageBuf.fill(0)       // Fill the pageBuf with all '0'
+            pageBuf[0] = 0x40
+            for (let y = 0; y < 8; y++) {
+                kitronik_OLED.set_pos(0, y)               // Set position to the start of the screen
+                pins.i2cWriteBuffer(displayAddress, pageBuf)  // Write clear buffer to the screen
+            }
         }
     }
 }
