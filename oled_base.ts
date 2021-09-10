@@ -75,7 +75,7 @@ namespace kitronik_OLED {
     }
 
     // Set the starting on the display for writing text
-    function set_pos(col: number = 0, page: number = 0) {
+    export function set_pos(col: number = 0, page: number = 0) {
         writeOneByte(0xb0 | page) // page number
         writeOneByte(0x00 | (col % 16)) // lower start column address
         writeOneByte(0x10 | (col >> 4)) // upper start column address    
